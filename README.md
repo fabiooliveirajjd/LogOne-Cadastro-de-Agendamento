@@ -9,8 +9,8 @@
 - [Tecnologias utilizadas](#tecnologias-utilizadas)
 - [Configuração do Ambiente](#variáveis-de-ambiente)
 - [Execução local](#execução-local)
-- [Filtros de consulta](#Filtros-de-consulta)
-- [Testes Postman ](#Testes-Postman)
+- [Regras de Negócio](#regras-de-negócio)
+
 
 ---
 
