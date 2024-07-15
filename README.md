@@ -66,7 +66,7 @@ git clone https://github.com/fabiooliveirajjd/LogOne-Cadastro-de-Agendamento.git
 6. Com o diretorio criado adicione o jar do hsqldb dentro do diretório execute o comando para criar o banco:
 
 ```shell
-`java -cp hsqldb-2.5.1.jar org.hsqldb.Server --database.0 file:C:/testebanco/novobanco/agenda --dbname.0 agenda`
+java -cp hsqldb-2.5.1.jar org.hsqldb.Server --database.0 file:C:/testebanco/novobanco/agenda --dbname.0 agenda`
 ````
 
 ![img_4.png](img_4.png)
