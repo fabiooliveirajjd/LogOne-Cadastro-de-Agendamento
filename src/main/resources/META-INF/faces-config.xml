@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+			  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+	<application>
+		<locale-config>
+			<default-locale>pt_BR</default-locale>
+			<supported-locale>pt</supported-locale>
+			<supported-locale>pt_BR</supported-locale>
+		</locale-config>
+	</application>
+
+	<navigation-rule>
+		<from-view-id>/index.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>home</from-outcome>
+			<to-view-id>/home.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>vagas</from-outcome>
+			<to-view-id>/vagas.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>solicitantes</from-outcome>
+			<to-view-id>/solicitantes.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>agendamentos</from-outcome>
+			<to-view-id>/agendamentos.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>consulta_agendamentos_por_solicitante</from-outcome>
+			<to-view-id>/consulta_agendamentos_por_solicitante.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>consulta_agendamentos_por_data</from-outcome>
+			<to-view-id>/consulta_agendamentos_por_data.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/vagas.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>index</from-outcome>
+			<to-view-id>/index.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+</faces-config>

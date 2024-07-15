@@ -1,0 +1,49 @@
+   .header-container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .header-container img {
+                height: 50px;
+                margin-right: 10px;
+            }
+            .header {
+                font-size: 35px;
+                text-align: center;
+                display: block;
+                width: 100%;
+            }
+            .center-form {
+                text-align: center;
+                margin-top: 65px;
+                width: 100%;
+            }
+            .footer {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                text-align: center;
+                font-size: 18px;
+                background-color: #f8f9fa;
+                padding: 10px 0;
+            }
+            .content {
+                padding-bottom: 80px;
+            }
+            .enter-button {
+                width: 200px;
+                height: 50px;
+                font-size: 20px;
+                background-color: #2196f3;
+                border: none;
+                border-radius: 30px;
+                color: white;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                text-align: center;
+                line-height: 50px;
+                display: inline-block;
+            }
+            .enter-button:hover {
+                background-color: #164d78;
+            }

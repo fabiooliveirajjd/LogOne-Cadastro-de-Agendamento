@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>Bem-vindo</title>
+        <h:outputStylesheet library="css" name="index.css"/>
+    </h:head>
+
+    <h:body id="body">
+
+        <p:panel>
+            <f:facet name="header">
+                <div class="header-container">
+                    <h:graphicImage name="images/1519864089088.jpg"/>
+                    <h:outputText styleClass="header" value="Bem-vindo ao sistema!"/>
+                </div>
+            </f:facet>
+
+            <p:card style="width: 100%; margin-bottom: 2em; background-color: #f8f9fa; border-radius: 35px"
+                    class="content">
+                <f:facet name="title">
+                    Agendamento de Vagas
+                </f:facet>
+                <p>
+
+                    Bem-vindo ao Sistema de Controle de Agendamentos de Vagas! Este projeto foi desenvolvido com o
+                    intuito de fornecer uma solução eficiente e escalável para o gerenciamento de agendamentos de vagas.
+                    O sistema permite o registro e consulta de vagas disponíveis, solicitantes e agendamentos,
+                    garantindo validações essenciais para manter a integridade dos dados. No back-end, utilizamos Java
+                    com Spring Boot, JPA/Hibernate e Lombok, enquanto no front-end utilizamos JSF com PrimeFaces, com o
+                    banco de dados HSQLDB.
+                    <br/>
+                    <br/>
+                    As principais funcionalidades incluem o cadastro de vagas, onde é possível definir períodos e
+                    quantidade de vagas disponíveis; o cadastro de solicitantes, registrando suas informações; e o
+                    agendamento, com validações de disponibilidade e limites. Além disso, o sistema permite a
+                    visualização de agendamentos por período e a obtenção de estatísticas de uso.
+                    <br/>
+                    <br/>
+                    Implementamos diversas validações, como a proibição de cadastro de vagas com datas retroativas,
+                    verificação de disponibilidade antes de novos agendamentos e controle da quantidade máxima de
+                    agendamentos permitida por solicitante. Explore as funcionalidades e utilize o sistema para
+                    gerenciar seus agendamentos de forma eficaz!
+                </p>
+                <h:form styleClass="center-form">
+                    <h:commandButton value="Entrar" action="home" styleClass="enter-button"/>
+                </h:form>
+            </p:card>
+        </p:panel>
+
+        <div class="footer">
+            <h:outputText value="Desenvolvido por: Fábio Santos Oliveira"/>
+        </div>
+    </h:body>
+
+</ui:composition>

@@ -1,0 +1,99 @@
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>Consulta de Agendamentos por Data</title>
+        <!-- Inclui o arquivo CSS específico para esta página -->
+        <h:outputStylesheet library="css" name="consulta_agendamentos_por_data.css"/>
+    </h:head>
+
+    <h:body id="body">
+
+        <p:panel>
+            <f:facet name="header">
+                <div class="header-container">
+                    <div style="display: flex; align-items: center;">
+                        <!-- Logotipo na parte superior -->
+                        <h:graphicImage name="images/1519864089088.jpg" style="height: 50px; margin-right: 10px;"/>
+                        <!-- Título da página -->
+                        <h:outputText styleClass="header" value="Consulta de Agendamentos por Data"/>
+                    </div>
+                    <!-- Botão de voltar para a página inicial -->
+                    <p:commandButton value="Voltar" action="home" immediate="true" styleClass="back-button"/>
+                </div>
+            </f:facet>
+
+            <h:form id="filtroForm" class="form-container">
+                <!-- Mensagens de validação e feedback -->
+                <div class="messages-container">
+                    <p:messages id="messages" autoUpdate="true" closable="true" showDetail="true"/>
+                </div>
+
+                <div class="card">
+                    <div class="ui-fluid formgrid grid">
+                        <!-- Campo para data de início -->
+                        <div class="field col-12 md:col-6">
+                            <p:outputLabel for="dataInicio" value="Data Início:" />
+                            <p:calendar id="dataInicio" value="#{agendamentoController.dataInicio}" pattern="dd/MM/yyyy"
+                                        navigator="true" required="true"
+                                        requiredMessage="Data de início é obrigatória" validatorMessage="Data inválida" />
+                            <p:message for="dataInicio" display="icon"/>
+                        </div>
+                        <!-- Campo para data de término -->
+                        <div class="field col-12 md:col-6">
+                            <p:outputLabel for="dataFim" value="Data Fim:" />
+                            <p:calendar id="dataFim" value="#{agendamentoController.dataFim}" pattern="dd/MM/yyyy"
+                                        navigator="true" required="true"
+                                        requiredMessage="Data de fim é obrigatória" validatorMessage="Data inválida" />
+                            <p:message for="dataFim" display="icon"/>
+                        </div>
+                        <!-- Campo para selecionar solicitante -->
+                        <div class="field col-12 md:col-6">
+                            <p:outputLabel for="solicitante" value="Solicitante:" />
+                            <p:selectOneMenu id="solicitante" value="#{agendamentoController.selectedSolicitanteId}"
+                                             required="true" requiredMessage="Solicitante é obrigatório">
+                                <f:selectItem itemLabel="Selecione" itemValue=""/>
+                                <f:selectItems value="#{agendamentoController.solicitantes}" var="solicitante"
+                                               itemLabel="#{solicitante.nome}" itemValue="#{solicitante.id}"/>
+                            </p:selectOneMenu>
+                            <p:message for="solicitante" display="icon"/>
+                        </div>
+                        <!-- Botão para filtrar agendamentos -->
+                        <div class="field col-12 md:col-6 button-container">
+                            <p:commandButton value="Filtrar" action="#{agendamentoController.filterAgendamentos}" update=":filtroForm:messages :resultForm:resultado" icon="ui-icon-search"/>
+                        </div>
+                    </div>
+                </div>
+            </h:form>
+        </p:panel>
+
+        <h:form id="resultForm" class="form-container">
+            <!-- Tabela para exibir os resultados dos agendamentos filtrados -->
+            <p:dataTable id="resultado" value="#{agendamentoController.agendamentoList}" var="agendamento" paginator="true" rows="10" rendered="#{not empty agendamentoController.agendamentoList}">
+                <p:column headerText="Data">
+                    <h:outputText value="#{agendamento.data}">
+                        <f:convertDateTime pattern="dd/MM/yyyy"/>
+                    </h:outputText>
+                </p:column>
+                <p:column headerText="Número">
+                    <h:outputText value="#{agendamento.numero}"/>
+                </p:column>
+                <p:column headerText="Motivo">
+                    <h:outputText value="#{agendamento.motivo}"/>
+                </p:column>
+                <p:column headerText="Solicitante">
+                    <h:outputText value="#{agendamento.solicitante.nome}"/>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+
+        <!-- Rodapé da página -->
+        <div class="footer">
+            <h:outputText value="Desenvolvido por: Fábio Santos Oliveira"/>
+        </div>
+    </h:body>
+</ui:composition>

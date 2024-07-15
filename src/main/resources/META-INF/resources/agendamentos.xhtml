@@ -1,0 +1,94 @@
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>Tela de Cadastro de Agendamentos</title>
+        <!-- Inclui o arquivo CSS específico para esta página -->
+        <h:outputStylesheet library="css" name="agendamentos.css"/>
+    </h:head>
+
+    <h:body id="body">
+
+        <p:panel>
+            <f:facet name="header">
+                <div class="header-container">
+                    <div style="display: flex; align-items: center;">
+                        <h:graphicImage name="images/1519864089088.jpg" style="height: 50px; margin-right: 10px;"/>
+                        <h:outputText styleClass="header" value="Tela de Cadastro de Agendamentos"/>
+                    </div>
+                    <!-- Botão de voltar para a página inicial -->
+                    <p:commandButton value="Voltar" action="home" immediate="true" styleClass="back-button"/>
+                </div>
+            </f:facet>
+
+            <h:form id="agendamentoForm" class="form-container">
+                <!-- Atualiza a lista de solicitantes antes de renderizar a página -->
+                <f:event type="preRenderView" listener="#{agendamentoController.updateSolicitantes}"/>
+                <!-- Mensagens de validação e feedback -->
+                <div class="messages-container">
+                    <p:messages id="messages" autoUpdate="true" closable="true" showDetail="true"/>
+                </div>
+
+                <div class="card">
+                    <div class="ui-fluid formgrid grid">
+                        <!-- Campo para data do agendamento -->
+                        <div class="field col-12 md:col-6">
+                            <p:outputLabel for="data" value="Data:" />
+                            <p:calendar id="data" value="#{agendamentoController.agendamento.data}" pattern="dd/MM/yyyy"
+                                        navigator="true" required="true"
+                                        requiredMessage="Data é obrigatória" validatorMessage="Data inválida" mindate="#{agendamentoController.hoje}">
+                                <f:ajax event="dateSelect" listener="#{agendamentoController.onDataSelect}" render="numero"/>
+                            </p:calendar>
+                        </div>
+
+                        <!-- Campo para número do agendamento -->
+                        <div class="field col-12 md:col-6">
+                            <p:outputLabel for="numero" value="Número:" />
+                            <p:selectOneMenu id="numero" value="#{agendamentoController.agendamento.numero}"
+                                             required="true" requiredMessage="Número é obrigatório">
+                                <f:selectItem itemLabel="Escolha uma vaga disponível" itemValue=""/>
+                                <f:selectItems value="#{agendamentoController.numeros}" var="numero" itemLabel="#{numero}"
+                                               itemValue="#{numero}"/>
+                            </p:selectOneMenu>
+                        </div>
+
+                        <!-- Campo para motivo do agendamento -->
+                        <div class="field col-12 md:col-6">
+                            <p:outputLabel for="motivo" value="Motivo:" />
+                            <p:inputTextarea id="motivo" value="#{agendamentoController.agendamento.motivo}"
+                                             required="true" requiredMessage="Motivo é obrigatório"/>
+                        </div>
+
+                        <!-- Campo para solicitante do agendamento -->
+                        <div class="field col-12 md:col-6">
+                            <p:outputLabel for="solicitante" value="Solicitante:" />
+                            <p:selectOneMenu id="solicitante" value="#{agendamentoController.agendamento.solicitante.id}"
+                                             required="true" requiredMessage="Solicitante é obrigatório">
+                                <f:selectItem itemLabel="Selecione" itemValue=""/>
+                                <f:selectItems value="#{agendamentoController.solicitantes}" var="solicitante"
+                                               itemLabel="#{solicitante.nome}" itemValue="#{solicitante.id}"/>
+                            </p:selectOneMenu>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botão para salvar o agendamento -->
+                <div class="button-container">
+                    <p:commandButton value="Salvar" action="#{agendamentoController.saveAgendamento}"
+                                     update=":agendamentoForm" icon="ui-icon-disk"/>
+                </div>
+
+            </h:form>
+
+        </p:panel>
+
+        <!-- Rodapé da página -->
+        <div class="footer">
+            <h:outputText value="Desenvolvido por: Fábio Santos Oliveira"/>
+        </div>
+    </h:body>
+</ui:composition>

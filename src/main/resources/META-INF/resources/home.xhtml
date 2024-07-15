@@ -1,0 +1,58 @@
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>Página Inicial</title>
+        <h:outputStylesheet library="css" name="home.css"/>
+    </h:head>
+
+    <h:body>
+
+        <p:panel>
+            <f:facet name="header">
+                <div class="header-container">
+                    <h:graphicImage name="images/1519864089088.jpg" />
+                    <h:outputText styleClass="header" value="Navegue nas opções do sistema"/>
+                </div>
+            </f:facet>
+
+            <h:form styleClass="center-form">
+                <div class="grid-container">
+                    <p:panel header="Cadastrar Vagas" styleClass="panel-container">
+                        <div class="description">Cadastrar novas vagas disponíveis.
+                            <p:commandButton value="Acessar" styleClass="command-button" action="vagas"/>
+                        </div>
+                    </p:panel>
+                    <p:panel header="Cadastro de solicitantes" styleClass="panel-container">
+                        <div class="description">Cadastre novos solicitantes no sistema.
+                            <p:commandButton value="Acessar" styleClass="command-button" action="solicitantes"/>
+                        </div>
+                    </p:panel>
+                    <p:panel header="Cadastro de agendamentos" styleClass="panel-container">
+                        <div class="description">Cadastre novos agendamentos de visitas.
+                            <p:commandButton value="Acessar" styleClass="command-button" action="agendamentos"/>
+                        </div>
+                    </p:panel>
+                    <p:panel header="Consulta de agendamentos" styleClass="panel-container">
+                        <div class="description">Consulte agendamentos filtrados por data.
+                            <p:commandButton value="Acessar" styleClass="command-button" action="consulta_agendamentos_por_data"/>
+                        </div>
+                    </p:panel>
+                    <p:panel header="Consulta do total de agendamentos por solicitante" styleClass="panel-container">
+                        <div class="description">Visualize todos os agendamentos por solicitantes.
+                            <p:commandButton value="Acessar" styleClass="command-button" action="consulta_agendamentos_por_solicitante"/>
+                        </div>
+                    </p:panel>
+                </div>
+            </h:form>
+        </p:panel>
+
+        <div class="footer">
+            <h:outputText value="Desenvolvido por: Fábio Santos Oliveira"/>
+        </div>
+    </h:body>
+</ui:composition>
