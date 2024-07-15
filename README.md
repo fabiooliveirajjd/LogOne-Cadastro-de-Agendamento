@@ -74,7 +74,9 @@ java -cp hsqldb-2.5.1.jar org.hsqldb.Server --database.0 file:C:/testebanco/novo
 - Mantenha o banco no alto para que a aplicação possa se conectar.
 7. Configure o application.properties com as informações do banco criado.
 
-![img.png](img.png)
+![img_6.png](img_6.png)
+
+
 8. Configuração de conexão com o banco de dados HSQLDB no DBeaver.
 
 ![img_5.png](img_5.png)
