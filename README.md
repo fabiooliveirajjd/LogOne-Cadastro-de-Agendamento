@@ -1,10 +1,7 @@
 <h1 align="center">Controle de Agendamento</h1>
 <center>
-    <img src="/LOG_ONE.jpg" alt="Logo" style="width:200px;"/>
+    <img src="/LOG_ONE.jpg" alt="Logo" style="width:200px; text-align:center;"/>
 </center>
-
-<h2>Índice</h2>
-
 
 <h2>Índice</h2>
 
@@ -46,14 +43,26 @@ Certifique-se de que você tenha o seguinte ambiente configurado antes de execut
 ## Execução local
 
 1. Escolha sua IDE de preferência.
+
+
 2. Configure as variáveis de ambiente do Java 17 e do Maven 3.8.1 na sua maquina local.
-3. Clone o repositório https://passarurl
+
+
+3. Clone o repositório do projeto em sua máquina local com o comando:
+
+
 ```shell
-git clone urlGit
-``` 
-4. Baixe o jar do banco [HSQLDB 2.5.2](https://mvnrepository.com/artifact/org.hsqldb/hsqldb/2.5.2)
+git clone https://github.com/fabiooliveirajjd/LogOne-Cadastro-de-Agendamento.git
+```
+4. Baixe o jar do banco 
+[HSQLDB 2.5.2](https://mvnrepository.com/artifact/org.hsqldb/hsqldb/2.5.2)
+
 ![img_2.png](img_2.png)
+
+
 5. Crie uma pasta para criar o banco localmente ex: C:/testebanco/agenda
+
+
 6. Com o diretorio criado adicione o jar do hsqldb dentro do diretório execute o comando para criar o banco:
 
 ```shell
@@ -64,8 +73,10 @@ git clone urlGit
 
 - Mantenha o banco no alto para que a aplicação possa se conectar.
 7. Configure o application.properties com as informações do banco criado.
+
 ![img.png](img.png)
 8. Configuração de conexão com o banco de dados HSQLDB no DBeaver.
+
 ![img_5.png](img_5.png)
 
 
@@ -101,7 +112,7 @@ java -jar -Dserver.port=9494 target/Teste-Pratico-Desenvolvedor-Java-0.0.2-SNAPS
 
 - As regras de negócios referenciadas a cima estão também comentadas no código fonte onde são aplicadas nos métodos de serviço.
 ---
-Desenvolvido por Fábio de Oliveira Santos.
+Desenvolvido por Fábio Santos Oliveira.
 
 
  
